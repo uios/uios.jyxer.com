@@ -1,0 +1,488 @@
+<body data-theme="meridiem">
+    <boot data-path="/desktop/" id="boot"></boot>
+    <picture class="position-fixed" data-height="100%" data-width="100%" data-z-index="0"></picture>
+    <page class="-active -active-opacity-1 -active-transform-translateY-0 opacity-0 position-fixed transform-translateY-negative-100pc transition-1s" data-height="100%" data-tap="controller.splash.screen" data-width="100%" data-page='/'>
+        <clock class="bottom-0 flex position-absolute margin-auto padding-20px" id="clock">
+            <column>
+                <box class="font-size-48px">
+                    <row>
+                        <hour id="hour">12</hour>
+                        <span>:</span>
+                        <minute id="minute">00</minute>
+                        <meridiem class="flex margin-left-5px text-transform-uppercase" id="meridiem">
+                            <span id="a-p"></span>
+                            <span>m</span>
+                        </meridiem>
+                    </row>
+                </box>
+                <box class="font-size-24px">
+                    <section>
+                        <date id="date">Sunday, January 1</date>
+                    </section>
+                </box>
+            </column>
+        </clock>
+    </page>
+    <page class="-active -active-opacity-1 -active-transform-translateY-0 opacity-0 position-fixed transform-translateY-negative-100pc transition-1s" data-height="100%" data-page='/my/' data-width="100%">
+        <blocks class="flex-align-items-center flex-justify-content-center noauth">
+            <box class="position-fixed right-0 top-0 z-index-9" data-href="/">
+                <row>
+                    <ico>
+                        <n class="gg-lock"></n>
+                    </ico>
+                </row>
+            </box>
+            <block class="font-size-13px">
+                <section class="grid-gap-30px" data-columns="1">
+                    <form class="width-300px" id="form-log-on" onsubmit="controller.log.on(event)">
+                        <column class="grid-gap-10px" data-columns="1">
+                            <box class="box-sizing-border-box border-1px-solid border-radius-5px margin-bottom-10px width-100pc">
+                                <row>
+                                    <input class="line-height-36px padding-x-10px width-100pc" placeholder="Email" type="text">
+                                </row>
+                            </box>
+                            <box class="box-sizing-border-box border-1px-solid border-radius-5px margin-bottom-10px width-100pc">
+                                <row>
+                                    <input class="flex-1 line-height-36px padding-left-10px padding-right-10px" placeholder="Password" type="password">
+                                    <input type="submit">
+                                </row>
+                            </box>
+                            <box class="width-100pc">
+                                <row class="grid-gap-10px" data-columns="2">
+                                    <box class="box-sizing-border-box border-1px-solid border-radius-5px">
+                                        <row>
+                                            <ico class="position-absolute left-0" data-height="36px" data-width="36px">
+                                                <n class="ui-bg-google"></n>
+                                            </ico>
+                                            <text class="flex-1 line-height-36px text-align-center" data-submit="log-on">Log In</text>
+                                            <input type="submit">
+                                        </row>
+                                    </box>
+                                    <box class="box-sizing-border-box border-1px-solid border-radius-5px" data-href="/my/account/">
+                                        <row>
+                                            <ico class="position-absolute left-0" data-height="36px" data-width="36px">
+                                                <n class="ui-bg-email"></n>
+                                            </ico>
+                                            <text class="flex-1 line-height-36px text-align-center">Sign Up</text>
+                                        </row>
+                                    </box>
+                                </row>
+                            </box>
+                        </column>
+                    </form>
+                    <card>
+                        <column>
+                            <box class="box-sizing-border-box border-1px-solid border-radius-5px" data-href="/desktop/">
+                                <row class="flex-align-center">
+                                    <ico class="position-absolute left-0" data-height="36px" data-width="36px">
+                                        <n class="gg-email"></n>
+                                    </ico>
+                                    <text class="flex-1 line-height-36px text-align-center">Continue as Guest</text>
+                                </row>
+                            </box>
+                            <box data-href="/my/account/password/">
+                                <row class="flex-align-center">
+                                    <ico class="position-absolute left-0">
+                                        <n class="icon-incognito"></n>
+                                    </ico>
+                                    <text class="flex-1 line-height-50px text-align-center">Forgot Password?</text>
+                                </row>
+                            </box>
+                        </column>
+                    </card>
+                </section>
+            </block>
+        </blocks>
+        <blocks class="flex-align-items-center flex-justify-content-center isauth">
+            <block class="font-size-13px">
+                <section class="grid-gap-30px" data-columns="1">
+                    <card>
+                        <column>
+                            <box data-href="/desktop/">
+                                <row class="flex-align-center">
+                                    <text class="flex-1 line-height-36px">Lock</text>
+                                </row>
+                            </box>
+                            <box data-href="/my/account/password/">
+                                <row class="flex-align-center">
+                                    <text class="flex-1 line-height-50px">Switch User</text>
+                                </row>
+                            </box>
+                            <box data-href="/my/account/password/">
+                                <row class="flex-align-center">
+                                    <text class="flex-1 line-height-50px">Sign Out</text>
+                                </row>
+                            </box>
+                            <box data-href="/my/account/password/">
+                                <row class="flex-align-center">
+                                    <text class="flex-1 line-height-50px">Change a password</text>
+                                </row>
+                            </box>
+                            <box data-href="/my/account/password/">
+                                <row class="flex-align-center">
+                                    <text class="flex-1 line-height-50px">Task Manager</text>
+                                </row>
+                            </box>
+                            <box class="-dark-background-color-333 background-color-ccc margin-top-50px" data-href="/desktop/">
+                                <row class="flex-align-center">
+                                    <text class="flex-1 line-height-50px text-align-center">Cancel</text>
+                                </row>
+                            </box>
+                        </column>
+                    </card>
+                    <card class="bottom-0 position-fixed right-0 z-index-9">
+                        <row>
+                            <box data-href="/">
+                                <row>
+                                    <ico>
+                                        <n class="gg-log-off"></n>
+                                    </ico>
+                                </row>
+                            </box>
+                        </row>
+                    </card>
+                </section>
+            </block>
+        </blocks>
+    </page>
+    <desktop data-z-index="1">
+        <pages class="-active -active-opacity-1 opacity-0 transition-1s" data-pages="/desktop/">
+            <picture class="bottom-0 flex flex-direction-column left-0 position-fixed right-0 top-0"></picture>
+            <blocks class="margin-bottom-50px">
+                <block>
+                    <column class="flex-wrap" id="desktop">
+                        <card>
+                            <section>
+                                <box class="padding-10px" data-href="/desktop/apps/pages/">
+                                    <column>
+                                        <ico class="border-radius-15pc color-fff" data-height="60px" data-width="60px" style="background-color:#662e91">
+                                            <n class="-ggs-150pc gg-file-document"></n>
+                                        </ico>
+                                        <text class="font-size-13px margin-top-5px text-align-center">Pages</text>
+                                    </column>
+                                </box>
+                            </section>
+                        </card>
+                        <card>
+                            <section>
+                                <box class="padding-10px" data-href="/desktop/apps/audio/">
+                                    <column>
+                                        <ico class="border-radius-15pc color-fff" data-height="60px" data-width="60px" style="background-color:#2e3192">
+                                            <n class="-ggs-150pc gg-music"></n>
+                                        </ico>
+                                        <text class="font-size-13px margin-top-5px text-align-center">Audio</text>
+                                    </column>
+                                </box>
+                            </section>
+                        </card>
+                        <card>
+                            <section>
+                                <box class="padding-10px" data-href="/desktop/apps/video/">
+                                    <column>
+                                        <ico class="border-radius-15pc color-fff" data-height="60px" data-width="60px" style="background-color:#0072bb">
+                                            <n class="-ggs-150pc gg-film"></n>
+                                        </ico>
+                                        <text class="font-size-13px margin-top-5px text-align-center">Video</text>
+                                    </column>
+                                </box>
+                            </section>
+                        </card>
+                        <card>
+                            <section>
+                                <box class="padding-10px" data-href="/desktop/apps/photo/">
+                                    <column>
+                                        <ico class="border-radius-15pc color-fff" data-height="60px" data-width="60px" style="background-color:#00a652">
+                                            <n class="-ggs-150pc icon-camera"></n>
+                                        </ico>
+                                        <text class="font-size-13px margin-top-5px text-align-center">Photo</text>
+                                    </column>
+                                </box>
+                            </section>
+                        </card>
+                        <card>
+                            <section>
+                                <box class="padding-10px" data-href="/desktop/apps/write/">
+                                    <column>
+                                        <ico class="border-radius-15pc color-000" data-height="60px" data-width="60px" style="background-color:#fef200">
+                                            <n class="-ggs-150pc gg-pen"></n>
+                                        </ico>
+                                        <text class="font-size-13px margin-top-5px text-align-center">Write</text>
+                                    </column>
+                                </box>
+                            </section>
+                        </card>
+                        <card>
+                            <section>
+                                <box class="padding-10px" data-href="/desktop/apps/games/">
+                                    <column>
+                                        <ico class="border-radius-15pc color-000" data-height="60px" data-width="60px" style="background-color:#f26c4f">
+                                            <n class="-ggs-150pc gg-games"></n>
+                                        </ico>
+                                        <text class="font-size-13px margin-top-5px text-align-center">Games</text>
+                                    </column>
+                                </box>
+                            </section>
+                        </card>
+                        <card>
+                            <section>
+                                <box class="padding-10px" data-href="/desktop/apps/merch/">
+                                    <column>
+                                        <ico class="border-radius-15pc color-fff" data-height="60px" data-width="60px" style="background-color:#ce0000">
+                                            <n class="-ggs-150pc gg-shopping-bag"></n>
+                                        </ico>
+                                        <text class="font-size-13px margin-top-5px text-align-center">Merch</text>
+                                    </column>
+                                </box>
+                            </section>
+                        </card>
+                    </column>
+                </block>
+            </blocks>
+            <start class="-dark-background-color-333 background-color-ccc bottom-0 flex flex-direction-row flex-justify-content-space-between height-50px position-fixed z-index-9" data-width="100%">
+                <page class="-dark-background-color-06 background-color-c3 bottom-0 height-568px max-height-100pc mobile-height-100pc mobile-width-100pc position-fixed width-320px z-index-9" data-page='/desktop/apps/'>
+                    <block class="width-100pc">
+                        <row>
+                            <card class="width-50px">
+                                <column>
+                                    <box class="margin-bottom-auto" data-tap="controller.start.menu">
+                                        <section>
+                                            <ico>
+                                                <n class="gg-menu"></n>
+                                            </ico>
+                                        </section>
+                                    </box>
+                                    <box data-href="/my/">
+                                        <section>
+                                            <ico>
+                                                <n class="gg-user"></n>
+                                            </ico>
+                                        </section>
+                                    </box>
+                                    <box data-href="/desktop/apps/files/pages/">
+                                        <section>
+                                            <ico>
+                                                <n class="gg-file"></n>
+                                            </ico>
+                                        </section>
+                                    </box>
+                                    <box data-href="/desktop/apps/files/photo/">
+                                        <section>
+                                            <ico>
+                                                <n class="gg-image"></n>
+                                            </ico>
+                                        </section>
+                                    </box>
+                                    <box data-href="/my/account/">
+                                        <section>
+                                            <ico>
+                                                <n class="gg-options"></n>
+                                            </ico>
+                                        </section>
+                                    </box>
+                                    <box data-tap="controller.log.off">
+                                        <section>
+                                            <ico>
+                                                <n class="gg-log-off"></n>
+                                            </ico>
+                                        </section>
+                                    </box>
+                                    <box class="height-50px width-100pc"></box>
+                                </column>
+                            </card>
+                            <card class="flex-1 scroll-y">
+                                <section>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/audio/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="gg-music"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Audio</text>
+                                        </row>
+                                    </box>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/books/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="gg-ereader"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Books</text>
+                                        </row>
+                                    </box>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/build/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="gg-template"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Build</text>
+                                        </row>
+                                    </box>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/calculator/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="gg-calculator"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Calculator</text>
+                                        </row>
+                                    </box>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/camera/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="gg-webcam"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Camera</text>
+                                        </row>
+                                    </box>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/chat/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="gg-comment"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Chat</text>
+                                        </row>
+                                    </box>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/files/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="gg-folder"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Files</text>
+                                        </row>
+                                    </box>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/games/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="gg-games"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Games</text>
+                                        </row>
+                                    </box>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/merch/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="gg-shopping-bag"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Merch</text>
+                                        </row>
+                                    </box>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/notes/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="gg-notes"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Notes</text>
+                                        </row>
+                                    </box>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/pages/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="gg-file-document"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Pages</text>
+                                        </row>
+                                    </box>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/photo/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="icon-camera" data-scale="0.5"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Photo</text>
+                                        </row>
+                                    </box>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/recorder/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="gg-mic"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Recorder</text>
+                                        </row>
+                                    </box>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/space/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="gg-cloud"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Space</text>
+                                        </row>
+                                    </box>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/time/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="gg-time"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Time</text>
+                                        </row>
+                                    </box>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/video/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="gg-film"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Video</text>
+                                        </row>
+                                    </box>
+                                    <box class="padding-10px width-100pc" data-href="/desktop/apps/write/">
+                                        <row>
+                                            <ico class="border-radius-15pc margin-10px" data-height="30px" data-width="30px">
+                                                <n class="gg-pen"></n>
+                                            </ico>
+                                            <text class="flex-align-items-center flex padding-x-5px text-align-center">Write</text>
+                                        </row>
+                                    </box>
+                                    <box class="height-50px width-100pc"></box>
+                                </section>
+                            </card>
+                        </row>
+                    </block>
+                </page>
+                <form class="-dark-background-color-333 background-color-ccc flex flex-direction-row mobile-width-100pc position-relative mobile-width-100p z-index-9" id="form-desktop-search" data-width="320px">
+                    <row>
+                        <ico data-href="/desktop/apps/" data-hide="/desktop/apps/">
+                            <n class="gg-search"></n>
+                        </ico>
+                        <ico data-href="/desktop/" data-page="/desktop/apps/">
+                            <n class="gg-close"></n>
+                        </ico>
+                        <input class="flex flex-1 font-size-18px" placeholder="Search" type="text">
+                        <input type="submit">
+                    </row>
+                </form>
+                <box class="-dark-background-color-333 background-color-ccc position-relative z-index-9">
+                    <row>
+                        <ico>
+                            <n class="gg-bell"></n>
+                        </ico>
+                    </row>
+                </box>
+            </start>
+        </pages>
+    </desktop>
+    <template id="template-desktop-apps-app">
+        <page class="background-color-000-0-pt-5 bottom-50px flex flex-direction-column left-0 position-fixed right-0 top-0">
+            <header class="color-fff">
+                <row class="flex-justify-content-space-between">
+                    <card>
+                        <row class="flex-align-items-center">
+                            <ico>
+                                <n></n>
+                            </ico>
+                            <text class="text-transform-capitalize"></text>
+                        </row>
+                    </card>
+                    <card>
+                        <row>
+                            <ico data-tap="controller.app.minimize(event.target)">
+                                <n class="icon-minimize"></n>
+                            </ico>
+                            <ico data-tap="controller.app.maximize(event)">
+                                <n class="icon-maximize"></n>
+                            </ico>
+                            <ico data-tap="controller.app.close(event.target)">
+                                <n class="icon-close"></n>
+                            </ico>
+                        </row>
+                    </card>
+                </row>
+            </header>
+            <iframe class="-dark-background-color-000 background-color-fff flex-1"></iframe>
+        </page>
+    </template>
+</body>
